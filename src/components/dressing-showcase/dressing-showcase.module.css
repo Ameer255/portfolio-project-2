@@ -1,0 +1,46 @@
+.dressing-showcase-container {
+    background-size: cover;
+    background-position: center center;
+}
+
+.button {
+    opacity: 0;
+    transition: .4s linear all;
+}
+
+.dressing-showcase-container:hover .button {
+    bottom: 0;
+    opacity: 1;
+}
+
+.dressing-overlay-text-container {
+    bottom: -20px;
+    transition: .4s linear all;
+}
+
+.dressing-showcase-container:hover .dressing-overlay-text-container {
+    bottom: 10px !important;
+}
+
+.dressing-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.dressing-overlay-text-container {
+    color: #eee;
+}
+
+.button,
+.button:hover {
+    background-color: #eee !important;
+    color: #222 !important;
+}
+
+
+@media screen and (max-width:800px) {
+    .dressing-showcase-container{
+        width: 100vw !important;
+    }
+}

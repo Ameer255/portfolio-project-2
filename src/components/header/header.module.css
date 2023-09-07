@@ -1,0 +1,157 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: relative;
+    transition: .5s linear background-color;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    min-width: 100%;
+}
+
+.nav:hover, .nav.dark{
+    color: black;
+    background-color: white;
+}
+
+.nav svg{
+    width: 25px;
+}
+
+.h2{
+    font-size: 1rem !important;
+}
+
+.nav-links-container>a, .nav-icons-container>a, .nav-sm a{
+    display: inline-block;
+    margin: 0 20px;
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+
+.nav-icons-container{
+    display: flex;
+    align-items: center;
+}
+
+.nav-sm{
+    position: fixed;
+    top: 42px;
+    background-color: white;
+    color: rgb(46, 46, 46);
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transition: .5s linear all;
+    z-index: 100;
+    opacity: 1;
+}
+
+.nav-sm div{
+    display: flex;
+    align-items: center;
+}
+
+.nav-sm>ul>div>div{
+    margin-bottom: -8px;
+}
+
+.nav-sm svg{
+   font-size: 15px;
+   margin-top: 15px;
+}
+
+.nav-sm a{
+    margin-top: 23px;
+    font-size: large;
+}
+
+.nav-sm a:hover{
+    border-bottom: 1px solid black;
+}
+
+.nav-sm li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-sm hr{
+    margin-top: 50px;
+}
+
+.account>a{
+    font-weight: 400;
+    font-size: medium;
+}
+
+.nav-hidden{
+    z-index: -100;
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s linear all;
+}
+
+.toggle-btn{
+    display: none;
+}
+
+
+.hamberger{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    display: none;
+ 
+ 
+ }
+ .hamberger span{
+     width: 100%;
+     height: 2px;
+    background-color: #eee;
+     margin-top: 3px;
+     transition: 0.5s ease;
+     
+ }
+
+ .nav:hover .hamberger span{
+    background-color: #222 !important;
+ }
+
+ .toggle .item1{
+    transform: rotate(45deg) translate(0px, 12px);
+}
+ .toggle .item2{
+  opacity: 0;
+}
+.toggle .item3{
+  transform: rotate(-45deg) translate(0px, -12px);
+}
+
+
+
+
+
+
+@media screen and (max-width:800px) {
+    .nav-links-container, .h2{
+        display: none;
+    }
+
+    .hamberger{
+        display: flex;
+    }
+}
+@media screen and (min-width:800px){
+    .nav-sm{
+        display: none;
+    }
+}

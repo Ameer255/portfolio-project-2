@@ -1,0 +1,22 @@
+.carousel img{
+    filter: brightness(0.7);
+    height: 130vh;
+    object-fit: cover;
+}
+
+.carousel-item{
+    position: relative;
+}
+
+.carousel-item .captions{
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+    z-index: 111;
+    color: #eee;
+}
+
+.controls{
+    filter: none !important;
+}
