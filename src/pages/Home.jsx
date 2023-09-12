@@ -10,6 +10,7 @@ import dressingImg3 from '../assets/images/dressing-img-3.webp';
 import dressingImg4 from '../assets/images/dressing-img-4.webp';
 import DressingDisplay from "../components/dressing-showcase/dressingShowcase";
 import OurServices from "../components/our-services/ourServices";
+import HeroSection from "../components/hero/HeroSection";
 
 function Home() {
   // const { loading, data, error } = useFetch("products");
@@ -17,6 +18,7 @@ function Home() {
 
   return (
     <div>
+      <HeroSection />
       <ProductDisplay bg={shopBagsImg} overlayTxt1='Shop' link='Shop Now' overlayTxt2='Bags' width='100%' height='80vh' />
       <ProductDisplay bg={shopBelts} overlayTxt1='Shop' link='Shop Now' overlayTxt2='Belts' width='100%' height='90vh' />
       <ProductDisplay bg={circleImage} overlayTxt1='' overlayTxt2='' width='100%' height='100vh' />

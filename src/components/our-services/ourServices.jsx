@@ -5,7 +5,7 @@ import serviceImg3 from '../../assets/images/our-services3.png';
 import styles from './services.module.css';
 import Service from "./service";
 
-const OurServices = ({ content, img }) => {
+const OurServices = () => {
 
 
     return (

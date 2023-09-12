@@ -1,0 +1,7 @@
+.loading-overlay{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .6);
+    color: #eee;
+    z-index: 111;
+}

@@ -10,7 +10,7 @@ const NavSm = ({navSmHidden}) => {
             <ul>
                 <div>
                     <li>
-                        <Link to="#">Shop</Link>
+                        <Link to="/shop">Shop</Link>
                     </li>
                     <div><ArrowForwardIosOutlinedIcon /></div>
                 </div>

@@ -1,0 +1,57 @@
+.item-img-container img{
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+}
+
+.color-img{
+    width: 50px;
+    height: 50px;
+    border: 2px solid grey;
+}
+
+.color-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cart-btn-container>div{
+    width: 30%;
+}
+
+.add-to-cart{
+    width: 65%;
+    background: transparent;
+}
+
+.add-to-cart:hover{
+    background-color: black;
+    color: #eee;
+}
+
+.paypal{
+    background-color: #ffc520;
+    border: none;
+    color: #253b80;
+    width: 100% !important;
+}
+
+.paypal:hover{
+    background-color: #e9b21c;
+}
+
+.paypal, .add-to-cart{
+    transition: .3s linear all;
+}
+
+
+.item-details-container svg{
+    display: inline-block;
+    margin: 5px 8px;
+}
+
+.paypal img{
+    width: 80px;
+    height: 20px;
+}

@@ -1,0 +1,28 @@
+.shop-item{
+    min-height: 70vh;
+}
+
+.img-container{
+    width: 100%;
+    height: 80%;
+}
+
+.img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-details{
+    height: 20%;
+}
+
+@media screen and (max-width:770px) {
+    .shop-item{
+        max-height: 60vh;
+    }
+
+    .img-container img{
+        object-fit: contain;
+    }
+}

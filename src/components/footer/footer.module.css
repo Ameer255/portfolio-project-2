@@ -1,0 +1,21 @@
+.icons svg{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 0 10px;
+    color: grey !important;
+}
+
+.footer input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid grey;
+}
+
+.footer{
+    font-size: small;
+}
+
+.footer a{
+    text-decoration: none;
+}

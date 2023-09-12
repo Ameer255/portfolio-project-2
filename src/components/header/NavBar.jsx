@@ -33,7 +33,7 @@ function NavBar({ navToggleHandler, navSmHidden }) {
             <h2 className={styles.h2}>SAIID KOBEISY</h2>
 
             <div className={styles['nav-links-container']}>
-                <NavLink to='/'>Shop</NavLink>
+                <NavLink to='/shop'>Shop</NavLink>
                 <NavLink to='/about'>Couture</NavLink>
                 <NavLink to='/contact'>Bridal</NavLink>
             </div>

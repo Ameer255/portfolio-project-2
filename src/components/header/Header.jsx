@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar";
 import NavSm from "./NavSm";
-import HeroSection from "../hero/HeroSection";
 
 function Header() {
 
@@ -14,7 +13,6 @@ function Header() {
     <header>
       <NavBar  navToggleHandler={navToggleHandler} navSmHidden={navSmHidden}/>
       <NavSm navSmHidden={navSmHidden}/>
-      <HeroSection/>
     </header>
 
   );
