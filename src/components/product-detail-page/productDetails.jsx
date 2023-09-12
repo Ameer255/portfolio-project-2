@@ -34,7 +34,8 @@ const ProductDetails = ({ title, description, price, id, imgUrl }) => {
                     setAddingToCart(false);
                     return;
                 }
-
+                item.quantity = count;
+                item.img = imgUrl;
                 cartItems.push(item);
                 localStorage.setItem('cartItems', JSON.stringify(cartItems));
 

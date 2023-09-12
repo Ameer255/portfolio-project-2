@@ -1,0 +1,11 @@
+.items-container p{
+    font-size: smaller;
+    margin: 0;
+}
+
+
+.item-img{
+    width: 60px;
+    height: 80px;
+    object-fit: contain;
+}
