@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunke_commerce_app=self.webpackChunke_commerce_app||[]).push([[954],{1954:function(e,c,p){e.exports=p.p+"static/media/product-img16.f1c3b95a8f8fd1f5f40c.webp"}}]);
