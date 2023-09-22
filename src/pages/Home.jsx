@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import ProductDisplay from "../components/products-showcase/productsDisplay";
 import shopBagsImg from '../assets/images/shop-bags.webp';
@@ -14,7 +14,7 @@ import HeroSection from "../components/hero/HeroSection";
 
 function Home() {
   // const { loading, data, error } = useFetch("products");
-
+ 
 
   return (
     <div>

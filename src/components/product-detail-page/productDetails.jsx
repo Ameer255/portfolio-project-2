@@ -1,16 +1,46 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useOutletContext } from "react-router-dom";
 import styles from "./product-detail.module.css";
 import paypalImg from '../../assets/images/paypal.png';
 import Axios from "axios";
+import data from "../../productData";
+import { QuantityController } from "../../pages/shopping-cart/cartItem";
 
-const ProductDetails = ({ title, description, price, id, imgUrl }) => {
+const ProductDetails = ({ title, description, price, id, imgUrl1, color, sizes }) => {
 
+    const { updateCartCount } = useOutletContext();
+    const [imgUrls, setImgUrls] = useState(null);
     const [count, setCount] = useState(1);
-    const [addingToCart, setAddingToCart] = useState(false);
+
+
+    const importImage = async () => {
+        try {
+            const img1 = await import(`../../assets/images/product-images/${imgUrl1}`);
+
+            setImgUrls({ img1: img1.default });
+        } catch (error) {
+            console.error('Error importing image:', error);
+            return null;
+        }
+    };
+
+
+    useEffect(() => {
+        importImage();
+    }, [count])
+
+
+
+
 
     const handleIncrement = () => {
-        setCount((prevCount) => prevCount + 1);
+
+        try {
+            setCount((prevCount) => prevCount + 1);
+        }
+        catch (err) {
+            console.error(err.message);
+        }
     }
 
     const handleDecrement = () => {
@@ -19,70 +49,73 @@ const ProductDetails = ({ title, description, price, id, imgUrl }) => {
         }
     }
 
+
+
+
     const addToCart = () => {
-        setAddingToCart(true);
-        Axios.get(`https://fakestoreapi.com/products/category/women's%20clothing`)
-            .then((response) => {
-                // Update the 'data' state with the fetched data
 
-                let item = response.data.find((p) => p.id === parseInt(id));
-                let cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [];
-                let itemExists = cartItems.some(item => item.id === parseInt(id));
+        try {
+            let item = data.find((p) => p.id === id);
+            let cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [];
+            let itemExists = cartItems.some(item => item.id === id);
 
-                if (itemExists) {
-                    alert('This item is already in your cart.!');
-                    setAddingToCart(false);
-                    return;
-                }
-                item.quantity = count;
-                item.img = imgUrl;
-                cartItems.push(item);
-                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            if (itemExists) {
+                alert('This item is already in your cart.!');
+                return;
+            }
+            item.quantity = count;
+            item.img = imgUrls.img1;
+            console.log(cartItems)
+            cartItems.push(item);
+            
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            alert('item added to cart');
+            updateCartCount(cartItems.length);
 
-                setAddingToCart(false);
-                alert('item added to cart')
+        }
+        catch (err) {
 
-            })
-            .catch((error) => {
-                // Handle any errors here
-                console.error('Error fetching data:', error);
-            });
+        }
+
     }
 
 
 
 
     return (
-        <div className={`col-10 col-md-4 col-lg-4 mx-lg-3 mx-md-2 my-3 mx-2 py-5 px-4 border ${styles['item-details-container']}`}>
+        <div className={`col-10 col-md-4 col-lg-4 my-3 py-5 px-4 ${styles['item-details-container']}`}>
+
             <div className={` ${styles['item-details']}`}>
                 <p className="text-muted">Saiid Kobeisy Online</p>
                 <h5>{title}</h5>
-                <p> SKU: CAPS23-05-{id} </p>
-                <p>$ {price}</p>
+                <p> {id} </p>
+                <p> {price}</p>
                 <p>Size</p>
                 <p>
-                    <span className="d-inline-block mx-2 text-muted">34</span>
-                    <span className="d-inline-block mx-2 text-muted">36</span>
+                    {sizes.map((size) => {
+                        return (
+                            <span className={`d-inline-block mx-2 ${size.selected ? 'fw-bold' : 'text-muted'} ${size.available ? '' : 'text-decoration-line-through'}`}>
+                                {size.size}
+                            </span>
+                        )
+                    })}
+
+
+                    {/* <span className="d-inline-block mx-2 text-muted">36</span>
                     <span className="d-inline-block mx-2 text-muted">38</span>
                     <span className="d-inline-block mx-2">40</span>
-                    <span className="d-inline-block mx-2 text-muted">42</span>
+                    <span className="d-inline-block mx-2 text-muted">42</span> */}
                 </p>
 
-                <p>Color: Black</p>
+                <p>Color: {color}</p>
                 <div className={`${styles['color-img']} rounded-5`}>
-                    <img src={imgUrl} alt="" className="rounded-5" />
+                    <img src={imgUrls && imgUrls.img1} alt="" className="rounded-5" />
                 </div>
 
                 <div className="my-4">
                     <div className={`${styles['cart-btn-container']} d-flex justify-content-between flex-wrap`}>
-                        <div className="border d-flex justify-content-between align-items-center">
-                            <button className="btn fs-3" onClick={handleDecrement}>-</button>
-                            <span>{count}</span>
-                            <button className="btn fs-4" onClick={handleIncrement}>+</button>
-                        </div>
-
-                        <button className={`border ${styles['add-to-cart']}`} onClick={addToCart} disabled={addingToCart ? true : false}> {addingToCart ? 'Adding to cart' : 'Add to Cart'}</button>
-
+                        <QuantityController incrementHandler={handleIncrement} decrementHandler={handleDecrement} count={count} />
+                        <button className={`border ${styles['add-to-cart']}`} onClick={addToCart}>Add to cart</button>
                         <button className={`${styles.paypal} d-block my-2 py-3`}>Buy with <img src={paypalImg} alt="paypal icon" /> </button>
                     </div>
 
@@ -99,6 +132,10 @@ const ProductDetails = ({ title, description, price, id, imgUrl }) => {
 
                 <div>
                     <p>Share on social media</p>
+                    <button className="btn btn-prmary" onClick={() => {
+                        alert('hi');
+                        handleIncrement()
+                    }}>Click here</button>
                     <p>
                         <i>
                             <svg width="15px" height="15px" viewBox="0 0 9 17">

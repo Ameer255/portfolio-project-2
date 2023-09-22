@@ -1,0 +1,53 @@
+
+.items-container{
+    background:linear-gradient(to bottom, #fafafa, #fefefe);
+}
+
+
+.paypal{
+    background-color: #f2ba36 !important;
+    padding: 12px 80px !important;
+}
+
+.paypal>img{
+    height: 25px;
+}
+
+.paypal:hover{
+    background-color: #dca72a !important;
+}
+
+.or{
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+
+}
+
+.img-container img{
+    min-width: 70px;
+    max-height: 60px;
+    object-fit: contain;
+}
+
+
+.size-color, .item-title{
+    font-size: smaller;
+}
+
+.quantity{
+    height: 16px;
+    width: 16px;
+    font-size: x-small;
+    background: rgba(0, 0, 0, .8);
+    color: #fff;
+    top: -8px;
+    right: -8px;
+}
+
+.shipping{
+    font-size: x-small;
+}

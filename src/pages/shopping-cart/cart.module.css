@@ -9,3 +9,52 @@
     height: 80px;
     object-fit: contain;
 }
+
+.h3{
+    margin-top: 80px;
+    margin-bottom: 30px;
+
+}
+
+.notification, .checkout{
+    background-color: #333;
+    color: #fff;
+}
+
+.checkout, .paypal{
+    transition: .2s linear background-color;
+}
+
+.checkout:hover{
+    color: #333;
+    background-color: #fff;
+
+}
+
+.paypal{
+    background-color: #f2ba36 !important;
+}
+
+.paypal>img{
+    height: 20px;
+}
+
+.paypal img:first-child{
+    width: 25px;
+}
+.paypal img:nth-child(2){
+    width: 65px;
+}
+
+.paypal:hover{
+    background-color: #dca72a;
+}
+.main-container{
+    margin-top: 150px !important;
+}
+
+@media screen and (min-width:900px) {
+    .main-container{
+        max-width: 60% !important;
+    }
+}

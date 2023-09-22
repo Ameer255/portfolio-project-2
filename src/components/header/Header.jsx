@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NavBar from "./NavBar";
 import NavSm from "./NavSm";
 
-function Header() {
+function Header({cartItemsCount}) {
 
   let [navSmHidden, setNavSmHidden] = useState(true);
 
@@ -11,7 +11,7 @@ function Header() {
   }
   return (
     <header>
-      <NavBar  navToggleHandler={navToggleHandler} navSmHidden={navSmHidden}/>
+      <NavBar  navToggleHandler={navToggleHandler} navSmHidden={navSmHidden} cartItemsCount={cartItemsCount}/>
       <NavSm navSmHidden={navSmHidden}/>
     </header>
 

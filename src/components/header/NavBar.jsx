@@ -1,21 +1,34 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import styles from './header.module.css';
 import Hamberger from "./Hamberger";
 // import logo from './logo.avif'
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 
 
-function NavBar({ navToggleHandler, navSmHidden }) {
+function NavBar({ navToggleHandler, navSmHidden, cartItemsCount }) {
 
-    let [onTop, setOnTop] = useState(true);
+    const location = useLocation();
+
+    const [onTop, setOnTop] = useState(true);
+    const [onHome, setOnHome] = useState(true);
+
+    useEffect(()=>{
+        if(location.pathname !== '/'){
+            setOnHome(false);
+        }
+        else{
+            setOnHome(true);
+        }
+    })
+
 
     window.addEventListener("scroll", function() {
         // Get the scroll position
         let scrollPosition = window.scrollY;
       
         // Check if the user has scrolled a bit (e.g., 100 pixels)
-        if (scrollPosition > 70) {
+        if (scrollPosition > 30) {
           console.log("User has scrolled a bit.");
           setOnTop(false);
         } else {
@@ -27,15 +40,15 @@ function NavBar({ navToggleHandler, navSmHidden }) {
 
 
     return (
-        <nav className={`${styles.nav} ${onTop ? '' : styles.dark} px-3 py-3`}>
+        <nav className={`${styles.nav} ${onHome && onTop ? '' : styles.dark} px-3 py-3`}>
             <Hamberger navSmHidden={navSmHidden} onclick={() => navToggleHandler()} open={navSmHidden} />
 
             <h2 className={styles.h2}>SAIID KOBEISY</h2>
 
             <div className={styles['nav-links-container']}>
                 <NavLink to='/shop'>Shop</NavLink>
-                <NavLink to='/about'>Couture</NavLink>
-                <NavLink to='/contact'>Bridal</NavLink>
+                <NavLink to='/shop'>Couture</NavLink>
+                <NavLink to='/shop'>Bridal</NavLink>
             </div>
 
             <div className={styles['nav-icons-container']}>
@@ -55,7 +68,7 @@ function NavBar({ navToggleHandler, navSmHidden }) {
                         </g>
                     </svg>
                 </Link>
-                <Link to='/cart'>
+                <Link to='/cart'> {cartItemsCount}
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Basket</title>
                         <path d="M68.4 192A20.38 20.38 0 0048 212.2a17.87 17.87 0 00.8 5.5L100.5 400a40.46 40.46 0 0039.1 29.5h232.8a40.88 40.88 0 0039.3-29.5l51.7-182.3.6-5.5a20.38 20.38 0 00-20.4-20.2H68" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="20"></path>
                         <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="20" d="M160 192l96-128 96 128"></path>
