@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d3c625f3.css",
-    "main.js": "/static/js/main.c60039ef.js",
+    "main.js": "/static/js/main.703a9e10.js",
     "static/js/142.cf88267f.chunk.js": "/static/js/142.cf88267f.chunk.js",
     "static/js/732.1c0ba10d.chunk.js": "/static/js/732.1c0ba10d.chunk.js",
     "static/js/299.2fe59c90.chunk.js": "/static/js/299.2fe59c90.chunk.js",
@@ -55,11 +55,11 @@
     "static/media/paypal-logo.svg": "/static/media/paypal-logo.11c203b293f8a68e7b9d165f2741eafd.svg",
     "index.html": "/index.html",
     "main.d3c625f3.css.map": "/static/css/main.d3c625f3.css.map",
-    "main.c60039ef.js.map": "/static/js/main.c60039ef.js.map",
+    "main.703a9e10.js.map": "/static/js/main.703a9e10.js.map",
     "787.4fb5f8c8.chunk.js.map": "/static/js/787.4fb5f8c8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d3c625f3.css",
-    "static/js/main.c60039ef.js"
+    "static/js/main.703a9e10.js"
   ]
 }
