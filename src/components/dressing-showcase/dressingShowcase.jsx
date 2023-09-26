@@ -35,3 +35,4 @@ function Button({ txt }) {
         <button className={`btn px-4 py-3 ${styles.button}`}>{txt}</button>
     )
 }
+

@@ -54,9 +54,9 @@ const CheckOutInfo = () => {
 
 
     return (
-        <div className={`col-11 col-md-7 border-md px-5 py-5`}>
+        <div className={`col-11 col-md-7 border-md px-md-5 py-5`}>
 
-            <div className="px-5">
+            <div className="px-md-5">
                 <div className="my-3">
                     <h3>Saiid Kobeisy Online</h3>
                     <p>Cart {'>'} checkout {'>'} <span className="fw-bold">Information</span></p>

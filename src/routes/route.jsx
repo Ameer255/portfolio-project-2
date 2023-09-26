@@ -18,12 +18,12 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path="/shop" element={<Shop />} />
-      <Route path="/shop/products/:id" element={<ProductDetailsPage />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/checkout" element={<CheckOut />} />
+      <Route path="shop" element={<Shop />} />
+      <Route path="shop/products/:id" element={<ProductDetailsPage />} />
+      <Route path="cart" element={<Cart />} />
+      <Route path="checkout" element={<CheckOut />} />
       <Route path="contact" element={<Contact />} />
-      <Route path="/order-placed" element={<OrderPlaced />} />
+      <Route path="order-placed" element={<OrderPlaced />} />
       
     </Route>
 

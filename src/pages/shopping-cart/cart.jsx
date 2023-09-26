@@ -47,13 +47,19 @@ const Cart = () => {
     }
 
 
-    const handleItemCount = (id, count) => {
+    const handleItemCount = (id, count, action) => {
         // Create a new array with updated counts
         // console.log('id is ', id , ' and count is ', count)
         const updatedCartItems = cartItems.map((item) => {
             if (item.id === id) {
                 // Update the count for the matching item
+
+                if(action === '+'){
                 return { ...item, quantity: count + 1 };
+                }
+                else if(action === '-' && count > 0) {
+                    return { ...item, quantity: count - 1 };
+                }
             }
             // Keep other items unchanged
             return item;

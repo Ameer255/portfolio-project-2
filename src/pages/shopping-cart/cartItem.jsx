@@ -7,13 +7,13 @@ const CartItem = ({ item, removeItem, handleItemCount}) => {
 
     const handleIncrement = () => {
         setItemQuantity((prevCount) => prevCount + 1);
-        handleItemCount(item.id, itemQUantity);
+        handleItemCount(item.id, itemQUantity, '+');
     }
 
     const handleDecrement = () => {
         if (itemQUantity > 1) {
             setItemQuantity((prevCount) => prevCount - 1);
-            handleItemCount(item.id, itemQUantity);
+            handleItemCount(item.id, itemQUantity, '-');
         }
     }
 

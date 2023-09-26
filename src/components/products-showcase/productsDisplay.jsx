@@ -14,7 +14,7 @@ const ProductDisplay = ({width, height, bg, overlayTxt1, overlayTxt2, link})=>{
                 </h2>
                 }
 
-                { link && <Link to="#" className="my-4 text-decoration-none">Shop Now</Link> }
+                { link && <Link to="/shop" className="my-4 text-decoration-none">Shop Now</Link> }
             </div>
         </div>
     )
